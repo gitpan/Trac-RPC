@@ -1,0 +1,24 @@
+---
+author:
+  - 'Ivan Bessarabov <ivan@bessarabov.ru>'
+build_requires:
+  ExtUtils::MakeMaker: 6.42
+configure_requires:
+  ExtUtils::MakeMaker: 6.42
+distribution_type: module
+generated_by: 'Module::Install version 0.93'
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: Trac-RPC
+no_index:
+  directory:
+    - inc
+    - t
+requires:
+  Exception::Class: 0
+  RPC::XML: 0
+resources:
+  license: http://dev.perl.org/licenses/
+version: 0.01
