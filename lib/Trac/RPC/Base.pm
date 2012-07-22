@@ -15,15 +15,18 @@ use warnings;
 use Data::Dumper;
 use RPC::XML::Client;
 use Trac::RPC::Exception;
-binmode STDOUT, ":utf8"; 
+use Carp;
+
+binmode STDOUT, ":utf8";
 
 =head1 GENERAL FUNCTIONS
 =cut
 
 =head2 new
- 
- * Get: 1) hash with connection information 
- * Return: 1) object 
+
+B<Get:> 1) $class 2) $params
+
+B<Return:> 1) object
 
 Sub creates an object
 
@@ -45,7 +48,7 @@ sub new {
         fault_handler => sub {error($self, @_)},
     );
 
-    if ( $self->{realm} && $self->{user} && $self->{password} ) { 
+    if ( $self->{realm} && $self->{user} && $self->{password} ) {
         $self->{rxc}->credentials($self->{realm}, $self->{user}, $self->{password});
     }
 
@@ -53,12 +56,13 @@ sub new {
     return $self;
 }
 
-=head2 call 
- 
- * Get: 1) @ with params to send to trac's xml rpc interface
- * Return: 1) scalar with some data recived from trac 
+=head2 call
 
-Sending request to trac and returns the answer. 
+B<Get:> 1) $self 2) @params with params to send to trac's xml rpc interface
+
+B<Return:> 1) scalar with some data recived from trac
+
+Sending request to trac and returns the answer.
 
     $self->call(
         'wiki.putPage',
@@ -78,7 +82,7 @@ sub call {
     return $res->value;
 }
 
-=head2 error 
+=head2 error
 
 Handler that checks for different types of erros and throws exceptions.
 
@@ -109,7 +113,7 @@ sub error {
             );
         }
     } else {
-        if ($_[0] =~ /connect: Connection refused/) {
+        if ($_[0] =~ /Connection refused/) {
             TracExceptionConnectionRefused->throw( error =>
                 "Could not access '$self->{host}'\n"
                 . "Got error '$_[0]'\n"
@@ -126,7 +130,7 @@ sub error {
                 . "Got error '$_[0]'\n"
             );
         } else {
-            die "Got error: '$_[0]'\n";
+            croak "Got error: '$_[0]'\n";
         }
 
     }
