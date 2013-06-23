@@ -1,13 +1,9 @@
 package Trac::RPC::Base;
+{
+  $Trac::RPC::Base::VERSION = '0.03';
+}
 
-=encoding UTF-8
-=cut
 
-=head1 NAME
-
-Trac::RPC::Base - abstract class for Trac::RPC classes
-
-=cut
 
 use strict;
 use warnings;
@@ -19,18 +15,7 @@ use Carp;
 
 binmode STDOUT, ":utf8";
 
-=head1 GENERAL FUNCTIONS
-=cut
 
-=head2 new
-
-B<Get:> 1) $class 2) $params
-
-B<Return:> 1) object
-
-Sub creates an object
-
-=cut
 
 sub new {
     my ($class, $params) = @_;
@@ -56,22 +41,6 @@ sub new {
     return $self;
 }
 
-=head2 call
-
-B<Get:> 1) $self 2) @params with params to send to trac's xml rpc interface
-
-B<Return:> 1) scalar with some data recived from trac
-
-Sending request to trac and returns the answer.
-
-    $self->call(
-        'wiki.putPage',
-        RPC::XML::string->new($page),
-        RPC::XML::string->new($content),
-        RPC::XML::struct->new()
-    );
-
-=cut
 
 sub call {
     my ($self, @params) = @_;
@@ -82,11 +51,6 @@ sub call {
     return $res->value;
 }
 
-=head2 error
-
-Handler that checks for different types of erros and throws exceptions.
-
-=cut
 
 sub error {
     my $self = shift @_;
@@ -137,3 +101,63 @@ sub error {
 }
 
 1;
+
+__END__
+
+=pod
+
+=head1 NAME
+
+Trac::RPC::Base
+
+=head1 VERSION
+
+version 0.03
+
+=encoding UTF-8
+
+=head1 NAME
+
+Trac::RPC::Base - abstract class for Trac::RPC classes
+
+=head1 GENERAL FUNCTIONS
+
+=head2 new
+
+B<Get:> 1) $class 2) $params
+
+B<Return:> 1) object
+
+Sub creates an object
+
+=head2 call
+
+B<Get:> 1) $self 2) @params with params to send to trac's xml rpc interface
+
+B<Return:> 1) scalar with some data recived from trac
+
+Sending request to trac and returns the answer.
+
+    $self->call(
+        'wiki.putPage',
+        RPC::XML::string->new($page),
+        RPC::XML::string->new($content),
+        RPC::XML::struct->new()
+    );
+
+=head2 error
+
+Handler that checks for different types of erros and throws exceptions.
+
+=head1 AUTHOR
+
+Ivan Bessarabov <ivan@bessarabov.ru>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2011 by Ivan Bessarabov.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
+
+=cut

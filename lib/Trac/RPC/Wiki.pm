@@ -1,29 +1,16 @@
 package Trac::RPC::Wiki;
+{
+  $Trac::RPC::Wiki::VERSION = '0.03';
+}
 
-=encoding UTF-8
-=cut
 
-=head1 NAME
-
-Trac::RPC::Wiki - access to Trac Wiki methods via Trac XML-RPC Plugin
-
-=cut
 
 use strict;
 use warnings;
 
 use base qw(Trac::RPC::Base);
 
-=head1 GENERAL FUNCTIONS
-=cut
 
-=head2 get_page
-
-B<Get:> 1) $self 2) scalar with page name
-
-B<Return:> 1) scalar with page content
-
-=cut
 
 sub get_page {
     my ($self, $page) = @_;
@@ -34,13 +21,6 @@ sub get_page {
     );
 }
 
-=head2 put_page
-
-B<Get:> 1) $self 2) scalar with page name 3) scalar with page content
-
-B<Return:> -
-
-=cut
 
 sub put_page {
     my ($self, $page, $content) = @_;
@@ -55,13 +35,6 @@ sub put_page {
     return ''
 }
 
-=head2 get_all_pages
-
-B<Get:> 1) $self
-
-B<Return:> 1) ref to the array with list of all wiki pages
-
-=cut
 
 sub get_all_pages {
     my ($self) = @_;
@@ -72,3 +45,54 @@ sub get_all_pages {
 }
 
 1;
+
+__END__
+
+=pod
+
+=head1 NAME
+
+Trac::RPC::Wiki
+
+=head1 VERSION
+
+version 0.03
+
+=encoding UTF-8
+
+=head1 NAME
+
+Trac::RPC::Wiki - access to Trac Wiki methods via Trac XML-RPC Plugin
+
+=head1 GENERAL FUNCTIONS
+
+=head2 get_page
+
+B<Get:> 1) $self 2) scalar with page name
+
+B<Return:> 1) scalar with page content
+
+=head2 put_page
+
+B<Get:> 1) $self 2) scalar with page name 3) scalar with page content
+
+B<Return:> -
+
+=head2 get_all_pages
+
+B<Get:> 1) $self
+
+B<Return:> 1) ref to the array with list of all wiki pages
+
+=head1 AUTHOR
+
+Ivan Bessarabov <ivan@bessarabov.ru>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2011 by Ivan Bessarabov.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
+
+=cut

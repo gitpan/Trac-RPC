@@ -1,7 +1,26 @@
 package Trac::RPC;
+{
+  $Trac::RPC::VERSION = '0.03';
+}
 
-=encoding UTF-8
-=cut
+# ABSTRACT: access to Trac via XML-RPC Plugin
+
+
+
+use strict;
+use warnings;
+
+use base qw(
+    Trac::RPC::Wiki
+    Trac::RPC::System
+    Trac::RPC::Tools
+);
+
+1;
+
+__END__
+
+=pod
 
 =head1 NAME
 
@@ -9,27 +28,7 @@ Trac::RPC - access to Trac via XML-RPC Plugin
 
 =head1 VERSION
 
-Version 0.02
-
-=head1 DESCRIPTION
-
-Trac is a great project management and bug/issue tracking system.
-http://trac.edgewall.org/.
-
-Trac by itself does not provide API. But there is a plugin that
-adds this functionality. It is called XmlRpcPlugin
-http://trac-hacks.org/wiki/XmlRpcPlugin.
-
-Trac::RPC is the libraty to use trac functions from perl programs
-through XmlRpcPlugin.
-
-On CPAN there is one more module to interact with trac instanse.
-It is called L<Net::Trac>. It parses webforms and it does not need
-the presense of XmlRpcPlugin.
-
-This is the very early version of Trac::RPC. It has only several
-API methods implemented, but it is a skeleton and it is very
-easy to add methods implementation. Plese fork this module on github.
+version 0.03
 
 =head1 SYNOPSIS
 
@@ -64,6 +63,28 @@ More on synopsion on appropriate pages:
 =back
 
 There are also some high level tools to work with trac L<Trac::RPC::Tools>
+
+=head1 DESCRIPTION
+
+Trac is a great project management and bug/issue tracking system.
+http://trac.edgewall.org/.
+
+Trac by itself does not provide API. But there is a plugin that
+adds this functionality. It is called XmlRpcPlugin
+http://trac-hacks.org/wiki/XmlRpcPlugin.
+
+Trac::RPC is the libraty to use trac functions from perl programs
+through XmlRpcPlugin.
+
+On CPAN there is one more module to interact with trac instanse.
+It is called L<Net::Trac>. It parses webforms and it does not need
+the presense of XmlRpcPlugin.
+
+This is the very early version of Trac::RPC. It has only several
+API methods implemented, but it is a skeleton and it is very
+easy to add methods implementation. Plese fork this module on github.
+
+=encoding UTF-8
 
 =head1 Exceptions
 
@@ -179,25 +200,19 @@ And here is the list of all API methods that needed to be implementd:
     search.getSearchFilters
     search.performSearchend
 
-=head1 AUTHOR
-
-Ivan Bessarabov, C<< <ivan@bessarabov.ru> >>
-
 =head1 SOURCE CODE
 
 The source code for this module is hosted on GitHub http://github.com/bessarabov/Trac-RPC
 
+=head1 AUTHOR
+
+Ivan Bessarabov <ivan@bessarabov.ru>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2011 by Ivan Bessarabov.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
+
 =cut
-
-use strict;
-use warnings;
-
-our $VERSION = 0.02;
-
-use base qw(
-    Trac::RPC::Wiki
-    Trac::RPC::System
-    Trac::RPC::Tools
-);
-
-1;
