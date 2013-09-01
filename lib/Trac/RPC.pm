@@ -1,6 +1,6 @@
 package Trac::RPC;
 {
-  $Trac::RPC::VERSION = '0.03';
+  $Trac::RPC::VERSION = '1.0.0';
 }
 
 # ABSTRACT: access to Trac via XML-RPC Plugin
@@ -28,7 +28,7 @@ Trac::RPC - access to Trac via XML-RPC Plugin
 
 =head1 VERSION
 
-version 0.03
+version 1.0.0
 
 =head1 SYNOPSIS
 
@@ -83,6 +83,9 @@ the presense of XmlRpcPlugin.
 This is the very early version of Trac::RPC. It has only several
 API methods implemented, but it is a skeleton and it is very
 easy to add methods implementation. Plese fork this module on github.
+
+Trac::RPC version numbers uses Semantic Versioning standart.
+Please visit L<http://semver.org/> to find out all about this great thing.
 
 =encoding UTF-8
 

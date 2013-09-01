@@ -1,6 +1,6 @@
 package Trac::RPC::Exception;
 {
-  $Trac::RPC::Exception::VERSION = '0.03';
+  $Trac::RPC::Exception::VERSION = '1.0.0';
 }
 
 
@@ -29,7 +29,7 @@ Trac::RPC::Exception
 
 =head1 VERSION
 
-version 0.03
+version 1.0.0
 
 =head1 SYNOPSIS
 

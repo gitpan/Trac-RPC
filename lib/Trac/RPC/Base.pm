@@ -1,6 +1,6 @@
 package Trac::RPC::Base;
 {
-  $Trac::RPC::Base::VERSION = '0.03';
+  $Trac::RPC::Base::VERSION = '1.0.0';
 }
 
 
@@ -112,7 +112,7 @@ Trac::RPC::Base
 
 =head1 VERSION
 
-version 0.03
+version 1.0.0
 
 =encoding UTF-8
 

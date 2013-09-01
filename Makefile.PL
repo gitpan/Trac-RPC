@@ -34,7 +34,7 @@ my %WriteMakefileArgs = (
     "RPC::XML::Server" => 0,
     "Test::More" => 0
   },
-  "VERSION" => "0.03",
+  "VERSION" => "1.0.0",
   "test" => {
     "TESTS" => "t/*.t"
   }
